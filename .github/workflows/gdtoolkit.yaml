@@ -1,0 +1,27 @@
+name: gdlint and gdformat
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  static-checks:
+    name: 'gdlint and gdformat'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Scony/godot-gdscript-toolkit@master
+    - run: gdformat --check Common/
+    - run: gdformat --check Entities/
+    - run: gdformat --check Levels/
+    - run: gdformat --check Test/
+    - run: gdformat --check UI/
+    - run: gdformat --check Utilities/
+    - run: gdlint Common/
+    - run: gdlint Entities/
+    - run: gdlint Levels/
+    - run: gdlint Test/
+    - run: gdlint UI/
+    - run: gdlint Utilities/
