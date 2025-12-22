@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://w2dl1it2tf5o"]
+
+[ext_resource type="PackedScene" uid="uid://dfr0trejf2aog" path="res://Entities/Player/Player.tscn" id="1_m8pr1"]
+[ext_resource type="PackedScene" uid="uid://b208sx12aru14" path="res://Assets/Models/LowPolyHumanoid/Female/psx_humanoid_female.glb" id="2_tw4h2"]
+[ext_resource type="PackedScene" uid="uid://3rp1u42u1k5f" path="res://Assets/Models/LowPolyHumanoid/Female/psx_humanoid_female.tscn" id="3_hpjva"]
+[ext_resource type="PackedScene" uid="uid://cidyytybiq4n2" path="res://Assets/Models/LowPolyHumanoid/Male/psx_humanoid_male.glb" id="3_j407f"]
+[ext_resource type="PackedScene" uid="uid://bnltg1752rlkk" path="res://UI/PSXScreen/PSXScreen.tscn" id="4_j407f"]
+[ext_resource type="PackedScene" uid="uid://cky4brwhr1je1" path="res://Assets/Models/LowPolyHumanoid/Male/psx_humanoid_male.tscn" id="4_uihkf"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dadia"]
+size = Vector2(10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m8pr1"]
+size = Vector3(10, 0.5, 10)
+
+[node name="Experiment" type="Node3D" unique_id=432998398]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1917807255]
+mesh = SubResource("PlaneMesh_dadia")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1845234136]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1766556308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_m8pr1")
+
+[node name="Player" parent="." unique_id=689733648 instance=ExtResource("1_m8pr1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=603900013]
+transform = Transform3D(-0.8230041, 0.19990446, -0.53169775, -0.45363948, 0.33204207, 0.8270183, 0.3418707, 0.9218385, -0.18258743, -4.240227, 8.710586, 1.0046792)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1820014666]
+
+[node name="PsxShader" parent="CanvasLayer" unique_id=2021418544 instance=ExtResource("4_j407f")]
+
+[node name="psx_humanoid_female" parent="." unique_id=1990503877 instance=ExtResource("3_hpjva")]
+transform = Transform3D(-0.8566365, 0, -0.5159204, 0, 1, 0, 0.5159204, 0, -0.8566365, 3.039673, 0, 2.9800196)
+
+[node name="psx_humanoid_male" parent="." unique_id=1173122034 instance=ExtResource("4_uihkf")]
+transform = Transform3D(-0.8144398, 0, 0.5802481, 0, 1, 0, -0.5802481, 0, -0.8144398, -1.1183689, 0, 2.5738578)
+
+[node name="psx_humanoid_male2" parent="." unique_id=1219948098 instance=ExtResource("3_j407f")]
+transform = Transform3D(-0.7224364, 0, 0.69143736, 0, 1, 0, -0.69143736, 0, -0.7224364, -2.6703033, 0, 1.6167593)
+
+[node name="psx_humanoid_female2" parent="." unique_id=1360651090 instance=ExtResource("2_tw4h2")]
+transform = Transform3D(-0.75468665, 0, -0.65608543, 0, 1, 0, 0.65608543, 0, -0.75468665, 1.6466262, 0, 3.7554245)

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cky4brwhr1je1"]
+
+[ext_resource type="PackedScene" uid="uid://cidyytybiq4n2" path="res://Assets/Models/LowPolyHumanoid/Male/psx_humanoid_male.glb" id="1_88rso"]
+[ext_resource type="Shader" uid="uid://fyjxe0e563d" path="res://Assets/Shaders/PSXModels.gdshader" id="2_tbd30"]
+[ext_resource type="Texture2D" uid="uid://bfajoj1uspgg2" path="res://Assets/Models/LowPolyHumanoid/Male/psx_humanoid_male_Male_BaseColor.png" id="3_wchpv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qecby"]
+render_priority = 0
+shader = ExtResource("2_tbd30")
+shader_parameter/albedo_texture = ExtResource("3_wchpv")
+shader_parameter/texture_tile = Vector2(1, 1)
+shader_parameter/snap_enabled = true
+shader_parameter/snap_resolution = 320.0
+
+[node name="psx_humanoid_male" unique_id=1173122034 instance=ExtResource("1_88rso")]
+
+[node name="Male" parent="root/Skeleton3D" parent_id_path=PackedInt32Array(1645322076) index="0" unique_id=1517546792]
+material_override = SubResource("ShaderMaterial_qecby")

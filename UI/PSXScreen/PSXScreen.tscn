@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bnltg1752rlkk"]
+
+[ext_resource type="Shader" uid="uid://bjx1bgpm40655" path="res://Assets/Shaders/PSXPostProcess.gdshader" id="1_h3kch"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41fs6"]
+shader = ExtResource("1_h3kch")
+
+[node name="PsxShader" type="ColorRect" unique_id=2021418544]
+material = SubResource("ShaderMaterial_41fs6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
