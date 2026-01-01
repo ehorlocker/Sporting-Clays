@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dfr0trejf2aog"]
 
 [ext_resource type="Script" uid="uid://bsnkqxu10glui" path="res://Entities/Player/player.gd" id="1_e5kic"]
-[ext_resource type="PackedScene" uid="uid://dialuidbrbi51" path="res://Assets/Models/FPArms/fp_arms_low_poly.glb" id="2_ww0jn"]
+[ext_resource type="PackedScene" uid="uid://34yovunsv0vw" path="res://Entities/Player/fp_arms_low_poly.tscn" id="2_ww0jn"]
+[ext_resource type="PackedScene" uid="uid://b8rgneinhoql7" path="res://Entities/Shotgun/shotgun.tscn" id="3_vweq0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u36tg"]
 
@@ -11,11 +12,8 @@ script = ExtResource("1_e5kic")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1405912311]
 shape = SubResource("CapsuleShape3D_u36tg")
 
-[node name="Head" type="Node3D" parent="." unique_id=396171627]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 0)
+[node name="fp_arms_low_poly" parent="." unique_id=1633400226 instance=ExtResource("2_ww0jn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.654, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1959578730]
-current = true
-
-[node name="fp_arms_low_poly" parent="." unique_id=1581489814 instance=ExtResource("2_ww0jn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="shotgun" parent="fp_arms_low_poly" unique_id=428839943 instance=ExtResource("3_vweq0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1.025, 0.438)

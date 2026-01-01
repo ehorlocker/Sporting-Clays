@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://w2dl1it2tf5o"]
 
 [ext_resource type="PackedScene" uid="uid://dfr0trejf2aog" path="res://Entities/Player/Player.tscn" id="1_m8pr1"]
+[ext_resource type="Texture2D" uid="uid://7537ol23qh45" path="res://Assets/Misc/sand.png" id="1_uihkf"]
 [ext_resource type="PackedScene" uid="uid://b208sx12aru14" path="res://Assets/Models/LowPolyHumanoid/Female/psx_humanoid_female.glb" id="2_tw4h2"]
 [ext_resource type="PackedScene" uid="uid://3rp1u42u1k5f" path="res://Assets/Models/LowPolyHumanoid/Female/psx_humanoid_female.tscn" id="3_hpjva"]
 [ext_resource type="PackedScene" uid="uid://cidyytybiq4n2" path="res://Assets/Models/LowPolyHumanoid/Male/psx_humanoid_male.glb" id="3_j407f"]
@@ -8,15 +9,25 @@
 [ext_resource type="PackedScene" uid="uid://cky4brwhr1je1" path="res://Assets/Models/LowPolyHumanoid/Male/psx_humanoid_male.tscn" id="4_uihkf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dadia"]
-size = Vector2(10, 10)
+size = Vector2(100, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmexo"]
+albedo_texture = ExtResource("1_uihkf")
+uv1_scale = Vector3(100, 100, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8pr1"]
-size = Vector3(10, 0.5, 10)
+size = Vector3(100, 0.5, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uihkf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gmexo"]
+size = Vector3(2, 0.5, 2)
 
 [node name="Experiment" type="Node3D" unique_id=432998398]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1917807255]
 mesh = SubResource("PlaneMesh_dadia")
+surface_material_override/0 = SubResource("StandardMaterial3D_gmexo")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1845234136]
 
@@ -45,3 +56,13 @@ transform = Transform3D(-0.7224364, 0, 0.69143736, 0, 1, 0, -0.69143736, 0, -0.7
 
 [node name="psx_humanoid_female2" parent="." unique_id=1360651090 instance=ExtResource("2_tw4h2")]
 transform = Transform3D(-0.75468665, 0, -0.65608543, 0, 1, 0, 0.65608543, 0, -0.75468665, 1.6466262, 0, 3.7554245)
+
+[node name="Plane" type="MeshInstance3D" parent="." unique_id=458459242]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 10)
+mesh = SubResource("PlaneMesh_uihkf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane" unique_id=1867880498]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" unique_id=326788507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_gmexo")

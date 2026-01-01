@@ -7,7 +7,7 @@ repos:
         name: gdlint
         description: "gdlint - linter for GDScript"
         entry: gdlint
-        exclude: "addons/"
+        exclude: "^addons/|^examples_dd3d/"
         additional_dependencies: [setuptools]
         language: python
         language_version: python3
@@ -16,7 +16,7 @@ repos:
       - id: gdformat
         name: gdformat
         description: "gdformat - formatter for GDScript"
-        exclude: "addons/"
+        exclude: "^addons/|^examples_dd3d/"
         entry: gdformat
         additional_dependencies: [setuptools]
         language: python

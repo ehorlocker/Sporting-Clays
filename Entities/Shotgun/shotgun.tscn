@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b8rgneinhoql7"]
+
+[ext_resource type="PackedScene" uid="uid://cvdk1jh0t306u" path="res://Assets/Models/Shotgun/gun_export.glb" id="1_ogfl4"]
+[ext_resource type="Shader" uid="uid://fyjxe0e563d" path="res://Assets/Shaders/PSXModels.gdshader" id="2_1yt4e"]
+[ext_resource type="Script" uid="uid://dsuhs0j5aqxry" path="res://Entities/Shotgun/shotgun.gd" id="2_nwjbc"]
+[ext_resource type="PackedScene" uid="uid://0qcu3a4bi4vc" path="res://Entities/Bullet/Bullet.tscn" id="3_n763t"]
+[ext_resource type="Texture2D" uid="uid://blitwkgmcwja2" path="res://Assets/Models/Shotgun/gun_export_overUnderRef.png" id="3_nwjbc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n763t"]
+render_priority = 0
+shader = ExtResource("2_1yt4e")
+shader_parameter/albedo_texture = ExtResource("3_nwjbc")
+shader_parameter/texture_tile = Vector2(1, 1)
+shader_parameter/snap_enabled = true
+shader_parameter/snap_resolution = 320.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hqcr"]
+render_priority = 0
+shader = ExtResource("2_1yt4e")
+shader_parameter/albedo_texture = ExtResource("3_nwjbc")
+shader_parameter/texture_tile = Vector2(1, 1)
+shader_parameter/snap_enabled = true
+shader_parameter/snap_resolution = 320.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t2vbw"]
+render_priority = 0
+shader = ExtResource("2_1yt4e")
+shader_parameter/albedo_texture = ExtResource("3_nwjbc")
+shader_parameter/texture_tile = Vector2(1, 1)
+shader_parameter/snap_enabled = true
+shader_parameter/snap_resolution = 320.0
+
+[node name="shotgun" unique_id=428839943 instance=ExtResource("1_ogfl4")]
+script = ExtResource("2_nwjbc")
+bullet_scene = ExtResource("3_n763t")
+
+[node name="Body_001" parent="shotgun_rig/Skeleton3D/gun_root" parent_id_path=PackedInt32Array(711261377) index="0" unique_id=1279240769]
+material_override = SubResource("ShaderMaterial_n763t")
+
+[node name="Barrel&HandGaurd_001" parent="shotgun_rig/Skeleton3D" parent_id_path=PackedInt32Array(1579174815) index="1" unique_id=1959850391]
+material_override = SubResource("ShaderMaterial_7hqcr")
+
+[node name="Trigger&Lever_001" parent="shotgun_rig/Skeleton3D" parent_id_path=PackedInt32Array(1579174815) index="2" unique_id=796486447]
+material_override = SubResource("ShaderMaterial_t2vbw")
+
+[node name="BarrelEndTop" type="Node3D" parent="." index="1" unique_id=1111767221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0005733669, 0.21722403, 0.6118697)
+
+[node name="BarrelEndBottom" type="Node3D" parent="." index="2" unique_id=933400253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0005362332, 0.19458786, 0.6129342)

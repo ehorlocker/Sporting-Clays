@@ -8,7 +8,9 @@ extends CharacterBody3D
 @export var mouse_sensitivity = 0.002
 
 # -- Node References --
-@onready var head = $Head
+@onready var camera = $fp_arms_low_poly/arms_root/Skeleton3D/BoneAttachment3D/Camera3D
+@onready var arms = $fp_arms_low_poly
+@onready var shotgun = $fp_arms_low_poly/shotgun
 
 
 func _ready():
@@ -19,8 +21,12 @@ func _input(event: InputEvent):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 
-		var new_rotation_x = head.rotation.x - event.relative.y * mouse_sensitivity
-		head.rotation.x = clamp(new_rotation_x, deg_to_rad(-80), deg_to_rad(80))
+		var new_rotation_x = arms.rotation.x + event.relative.y * mouse_sensitivity
+		arms.rotation.x = clamp(new_rotation_x, deg_to_rad(-80), deg_to_rad(80))
+
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			shotgun.fire()
 
 
 func _physics_process(delta: float):

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://0qcu3a4bi4vc"]
+
+[ext_resource type="Script" uid="uid://b1usteuoi4ntp" path="res://Entities/Bullet/bullet.gd" id="1_h8dem"]
+
+[node name="Bullet" type="Node3D" unique_id=229716286]
+script = ExtResource("1_h8dem")
+enable_debug_visualization = true

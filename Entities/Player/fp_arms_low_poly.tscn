@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://34yovunsv0vw"]
+
+[ext_resource type="PackedScene" uid="uid://dialuidbrbi51" path="res://Assets/Models/FPArms/fp_arms_low_poly.glb" id="1_4jv3j"]
+[ext_resource type="Shader" uid="uid://fyjxe0e563d" path="res://Assets/Shaders/PSXModels.gdshader" id="2_17dmk"]
+[ext_resource type="Texture2D" uid="uid://x8i5w571djvv" path="res://Assets/Models/FPArms/fp_arms_low_poly_Arms_Bake_PBR_Diffuse.png" id="3_f0w6c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s181v"]
+render_priority = 0
+shader = ExtResource("2_17dmk")
+shader_parameter/albedo_texture = ExtResource("3_f0w6c")
+shader_parameter/texture_tile = Vector2(1, 1)
+shader_parameter/snap_enabled = true
+shader_parameter/snap_resolution = 320.0
+
+[node name="fp_arms_low_poly" unique_id=1731846064 instance=ExtResource("1_4jv3j")]
+
+[node name="Skeleton3D" parent="arms_root" parent_id_path=PackedInt32Array(1319576827) index="0" unique_id=371880928]
+bones/0/rotation = Quaternion(0.49420285, 0.50504345, 0.5050437, -0.49560624)
+bones/1/position = Vector3(3.5410398e-05, 0.1270309, -0.082001805)
+bones/1/rotation = Quaternion(-0.7824403, -0.1414293, -0.4298027, 0.42784894)
+bones/2/rotation = Quaternion(-9.28865e-08, -1.804242e-06, -0.4967634, 0.867886)
+bones/3/rotation = Quaternion(0.0077387393, 0.7961527, 0.5060802, -0.33160806)
+bones/5/rotation = Quaternion(-0.14861117, -0.21104866, -0.13760856, 0.9562621)
+bones/6/rotation = Quaternion(0.0037254356, 0.9537932, 0.2559427, 0.15734679)
+bones/8/rotation = Quaternion(-0.31061825, -0.44703007, 0.15857875, 0.82373124)
+bones/9/rotation = Quaternion(-0.4401847, -0.015033796, 0.09231271, 0.8930229)
+bones/10/rotation = Quaternion(-0.37250432, 0.0046173064, 0.034122277, 0.92739147)
+bones/12/rotation = Quaternion(-0.4907307, -0.17263103, 0.11275532, 0.8465626)
+bones/13/rotation = Quaternion(-0.5742121, 0.0028783465, -0.017029727, 0.8185244)
+bones/14/rotation = Quaternion(-0.54967093, 0.005099953, -0.0020993915, 0.83536315)
+bones/15/rotation = Quaternion(-0.49420285, 0.50504345, 0.5050437, 0.49560624)
+bones/16/position = Vector3(3.7511015e-08, 0.123161234, 9.004823e-08)
+bones/16/rotation = Quaternion(-0.20747639, -0.32867154, -0.08011521, 0.9178836)
+bones/17/rotation = Quaternion(1.84132e-06, 1.6573022e-06, 0.96294034, 0.26971468)
+bones/18/rotation = Quaternion(0.021674411, 0.4983428, 0.5766994, 0.64699507)
+bones/19/rotation = Quaternion(-0.06874262, 0.8069327, 0.5122131, -0.28595784)
+bones/20/rotation = Quaternion(-0.13707015, 0.014941293, -0.04879772, 0.98924583)
+bones/21/rotation = Quaternion(-0.1963063, 0.00671234, -0.24939255, 0.9482733)
+bones/22/rotation = Quaternion(-0.3620332, 0.64610165, 0.51114595, -0.43613577)
+bones/23/rotation = Quaternion(-0.11595148, 0.29623234, -0.24563572, 0.9156773)
+bones/24/rotation = Quaternion(-0.19211632, -0.009555414, -0.09303949, 0.97690517)
+bones/25/rotation = Quaternion(-0.11781584, -0.01335448, -0.031738088, 0.9924384)
+bones/27/rotation = Quaternion(-0.58641326, 0.36425, -0.25209433, 0.6781519)
+bones/28/rotation = Quaternion(-0.74625355, -0.006698281, 0.015919453, 0.6654377)
+bones/29/rotation = Quaternion(-0.72621584, -0.0054450952, 0.000876806, 0.6874447)
+
+[node name="Arms" parent="arms_root/Skeleton3D" index="0" unique_id=1370169826]
+material_override = SubResource("ShaderMaterial_s181v")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="arms_root/Skeleton3D" index="1" unique_id=1586595834]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 1.3198, 3.850971e-09)
+bone_name = "camera"
+bone_idx = 30
+
+[node name="Camera3D" type="Camera3D" parent="arms_root/Skeleton3D/BoneAttachment3D" index="0" unique_id=1739907283]
+transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, 0, 0, 0)
+fov = 80.0

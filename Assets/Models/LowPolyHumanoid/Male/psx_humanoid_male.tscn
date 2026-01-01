@@ -10,7 +10,7 @@ shader = ExtResource("2_tbd30")
 shader_parameter/albedo_texture = ExtResource("3_wchpv")
 shader_parameter/texture_tile = Vector2(1, 1)
 shader_parameter/snap_enabled = true
-shader_parameter/snap_resolution = 320.0
+shader_parameter/snap_resolution = 100.0
 
 [node name="psx_humanoid_male" unique_id=1173122034 instance=ExtResource("1_88rso")]
 
