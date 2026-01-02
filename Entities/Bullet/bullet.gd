@@ -1,6 +1,6 @@
 extends Node3D
 
-const MUZZLE_VELOCITY = 10.0  # 400.0  # m/s (1300 fps converted)
+const MUZZLE_VELOCITY = 400.0  # m/s (1300 fps converted)
 const GRAVITY = 9.8  # m/s²
 const MAX_RANGE = 50.0  # meters (~55 yards, realistic for clay)
 
